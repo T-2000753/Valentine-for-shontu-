@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Shontu ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family: Arial;
+text-align:center;
+background:#ffe6f2;
+overflow-x:hidden;
+}
+
+.page{
+display:none;
+padding:30px;
+}
+
+.active{
+display:block;
+}
+
+h1{
+color:#ff1493;
+}
+
+button{
+padding:12px 20px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin:10px;
+}
+
+#yes{
+background:#ff4da6;
+color:white;
+}
+
+#no{
+background:grey;
+color:white;
+position:relative;
+}
+
+img{
+max-width:90%;
+border-radius:15px;
+margin-top:15px;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+color:red;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+}
+}
+
+#slideshow img{
+display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Falling Hearts -->
+<script>
+setInterval(function(){
+var heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+},300);
+</script>
+
+<!-- YOUTUBE MUSIC -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed?listType=search&list=Dooron%20Dooron%20song&autoplay=1&loop=1"
+frameborder="0"
+allow="autoplay">
+</iframe>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+<h1>Our First Memory 💕</h1>
+<p>Amra first dekha korechilam <b>16.11.2024</b> ❤️</p>
+<img src="first.jpg">
+<br>
+<button onclick="nextPage()">Continue ➡</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+
+<h1>Shontu ❤️</h1>
+<p>Ok Shontu, tomake Triparna'r sarajibon er jhogra korar partner hisabe select kora holo 😌💘</p>
+
+<!-- Slideshow -->
+<div id="slideshow">
+<img src="pic1.jpg">
+<img src="pic2.jpg">
+<img src="pic3.jpg">
+<img src="pic4.jpg">
+<img src="pic5.jpg">
+</div>
+
+<br><br>
+
+<h2>Will You Stay With Me Forever? 💍</h2>
+
+<button id="yes" onclick="celebrate()">Yes 💖</button>
+<button id="no" onmouseover="moveNo()">No 😜</button>
+
+<h2 id="finalMsg"></h2>
+
+</div>
+
+<script>
+
+function nextPage(){
+document.getElementById("page1").classList.remove("active");
+document.getElementById("page2").classList.add("active");
+}
+
+var slideIndex=0;
+var slides=document.querySelectorAll("#slideshow img");
+
+function showSlides(){
+slides.forEach(slide=>slide.style.display="none");
+slideIndex++;
+if(slideIndex>slides.length){slideIndex=1;}
+slides[slideIndex-1].style.display="block";
+setTimeout(showSlides,2000);
+}
+showSlides();
+
+function moveNo(){
+var btn=document.getElementById("no");
+btn.style.position="absolute";
+btn.style.left=Math.random()*window.innerWidth+"px";
+btn.style.top=Math.random()*window.innerHeight+"px";
+}
+
+function celebrate(){
+document.getElementById("finalMsg").innerHTML="Yayyyy ❤️ You're mine forever Shontu!!!";
+for(let i=0;i<100;i++){
+let conf=document.createElement("div");
+conf.innerHTML="💖";
+conf.style.position="fixed";
+conf.style.left=Math.random()*100+"vw";
+conf.style.top="-10px";
+conf.style.fontSize="20px";
+conf.style.animation="fall 3s linear";
+document.body.appendChild(conf);
+setTimeout(()=>conf.remove(),3000);
+}
+}
+
+</script>
+
+</body>
+</html>
